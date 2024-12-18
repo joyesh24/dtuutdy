@@ -4,7 +4,14 @@ import { motion } from 'framer-motion'
 
 export default function LoadingScreen() {
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center z-50">
+    <div
+      className="fixed inset-0 bg-cover bg-center flex items-center justify-center z-50"
+      style={{
+        backgroundImage: "url('https://drive.google.com/uc?export=view&id=1tmzXniD4gRHUZoaxZyssn6rRLRkFijqD')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <motion.div
         className="text-6xl font-bold text-orange-600"
         initial={{ opacity: 0, scale: 0.5 }}
@@ -27,4 +34,3 @@ export default function LoadingScreen() {
     </div>
   )
 }
-
