@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -16,7 +16,7 @@ export default function LoadingScreen() {
     const handleRouteChangeComplete = () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 2000); // 2 সেকেন্ড
+      }, 2000); // 2 সেকেন্ডের জন্য লোডিং স্ক্রিন শো করবে
     };
 
     router.events.on('routeChangeStart', handleRouteChangeStart);
