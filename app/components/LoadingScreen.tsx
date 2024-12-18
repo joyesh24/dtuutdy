@@ -1,37 +1,8 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
 
 export default function LoadingScreen() {
-  const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleRouteChangeStart = () => {
-      setIsLoading(true);
-    };
-
-    const handleRouteChangeComplete = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 2000); // 2 সেকেন্ডের জন্য লোডিং স্ক্রিন শো করবে
-    };
-
-    router.events.on('routeChangeStart', handleRouteChangeStart);
-    router.events.on('routeChangeComplete', handleRouteChangeComplete);
-    router.events.on('routeChangeError', handleRouteChangeComplete);
-
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChangeStart);
-      router.events.off('routeChangeComplete', handleRouteChangeComplete);
-      router.events.off('routeChangeError', handleRouteChangeComplete);
-    };
-  }, [router]);
-
-  if (!isLoading) return null;
-
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center z-50">
       <motion.div
@@ -41,7 +12,7 @@ export default function LoadingScreen() {
         transition={{
           duration: 0.8,
           delay: 0.5,
-          ease: [0, 0.71, 0.2, 1.01],
+          ease: [0, 0.71, 0.2, 1.01]
         }}
       >
         লোড হচ্ছে...
@@ -54,5 +25,6 @@ export default function LoadingScreen() {
         style={{ transformOrigin: "0% 0%" }}
       />
     </div>
-  );
+  )
 }
+
